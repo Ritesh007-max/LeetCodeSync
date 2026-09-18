@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        set<vector<int>> unique_quads;
+        set<vector<int>> unique;
         int n = nums.size();
         if (n < 4) return {};
 
@@ -16,7 +16,7 @@ public:
                     long long sum = (long long)nums[i] + nums[j] + nums[left] + nums[right];
 
                     if (sum == target) {
-                        unique_quads.insert({nums[i], nums[j], nums[left], nums[right]});
+                        unique.insert({nums[i], nums[j], nums[left], nums[right]});
                         left++;
                         right--;
                     } else if (sum < target) {
@@ -28,6 +28,6 @@ public:
             }
         }
 
-        return vector<vector<int>>(unique_quads.begin(), unique_quads.end());
+        return vector<vector<int>>(unique.begin(), unique.end());
     }
 };
